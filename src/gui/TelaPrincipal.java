@@ -28,28 +28,57 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        JM_CadastroP = new javax.swing.JMenu();
+        JM_CadastroP_Clientes = new javax.swing.JMenuItem();
+        JM_CadastroP_Funcionarios = new javax.swing.JMenuItem();
+        JM_CadastroP_Cidades = new javax.swing.JMenuItem();
+        JM_CadastroP_Bairro = new javax.swing.JMenuItem();
+        JM_CadastroP_Cargo = new javax.swing.JMenuItem();
+        JM_CadastroP_Fornecedores = new javax.swing.JMenuItem();
+        JM_CadastroP_Sair = new javax.swing.JMenuItem();
+        JM_Consultas = new javax.swing.JMenu();
+        JM_Relatorio = new javax.swing.JMenu();
+        JM_Utilitarios = new javax.swing.JMenu();
+        JM_Sair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("Cadastros");
-        jMenuBar1.add(jMenu1);
+        JM_CadastroP.setText("Cadastros");
 
-        jMenu2.setText("Consultas");
-        jMenuBar1.add(jMenu2);
+        JM_CadastroP_Clientes.setText("Clientes");
+        JM_CadastroP.add(JM_CadastroP_Clientes);
 
-        jMenu3.setText("Relatórios");
-        jMenuBar1.add(jMenu3);
+        JM_CadastroP_Funcionarios.setText("Funcionários");
+        JM_CadastroP.add(JM_CadastroP_Funcionarios);
 
-        jMenu4.setText("Utilitarios");
-        jMenuBar1.add(jMenu4);
+        JM_CadastroP_Cidades.setText("Cidades");
+        JM_CadastroP.add(JM_CadastroP_Cidades);
 
-        jMenu5.setText("Sair");
-        jMenuBar1.add(jMenu5);
+        JM_CadastroP_Bairro.setText("Bairro");
+        JM_CadastroP.add(JM_CadastroP_Bairro);
+
+        JM_CadastroP_Cargo.setText("Cargo");
+        JM_CadastroP.add(JM_CadastroP_Cargo);
+
+        JM_CadastroP_Fornecedores.setText("Fornecedores");
+        JM_CadastroP.add(JM_CadastroP_Fornecedores);
+
+        JM_CadastroP_Sair.setText("Sair");
+        JM_CadastroP.add(JM_CadastroP_Sair);
+
+        jMenuBar1.add(JM_CadastroP);
+
+        JM_Consultas.setText("Consultas");
+        jMenuBar1.add(JM_Consultas);
+
+        JM_Relatorio.setText("Relatórios");
+        jMenuBar1.add(JM_Relatorio);
+
+        JM_Utilitarios.setText("Utilitarios");
+        jMenuBar1.add(JM_Utilitarios);
+
+        JM_Sair.setText("Sair");
+        jMenuBar1.add(JM_Sair);
 
         setJMenuBar(jMenuBar1);
 
@@ -103,11 +132,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu JM_CadastroP;
+    private javax.swing.JMenuItem JM_CadastroP_Bairro;
+    private javax.swing.JMenuItem JM_CadastroP_Cargo;
+    private javax.swing.JMenuItem JM_CadastroP_Cidades;
+    private javax.swing.JMenuItem JM_CadastroP_Clientes;
+    private javax.swing.JMenuItem JM_CadastroP_Fornecedores;
+    private javax.swing.JMenuItem JM_CadastroP_Funcionarios;
+    private javax.swing.JMenuItem JM_CadastroP_Sair;
+    private javax.swing.JMenu JM_Consultas;
+    private javax.swing.JMenu JM_Relatorio;
+    private javax.swing.JMenu JM_Sair;
+    private javax.swing.JMenu JM_Utilitarios;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
