@@ -5,17 +5,47 @@
  */
 package gui;
 
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author wallace.amorim
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
+    private static final ScheduledExecutorService background = Executors.newSingleThreadScheduledExecutor();
+    
     /**
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
         initComponents();
+        
+        LocalDate localDate = LocalDate.now();
+        Date date = Date.from(Instant.now());
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        String data = format.format(date);
+        
+        LData.setText(data);
+        
+        long delayInicial = 0;
+        long intervaloDeInvocacao = 1;
+        TimeUnit segundos = TimeUnit.SECONDS;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss");
+        Runnable tarefa = () -> SwingUtilities.invokeLater(
+            () -> lhora.setText(LocalTime.now().format(formatter))
+        );
+        background.scheduleAtFixedRate(tarefa, delayInicial, intervaloDeInvocacao, segundos);
+        
     }
 
     /**
@@ -27,6 +57,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        LData = new javax.swing.JLabel();
+        lhora = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         JM_CadastroP = new javax.swing.JMenu();
         JM_CadastroP_Clientes = new javax.swing.JMenuItem();
@@ -42,6 +74,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         JM_Sair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        LData.setText("Data:");
+
+        lhora.setText("hora:");
 
         JM_CadastroP.setText("Cadastros");
 
@@ -86,11 +122,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 674, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(228, 228, 228)
+                .addComponent(LData)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lhora)
+                .addContainerGap(387, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 366, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(341, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LData)
+                    .addComponent(lhora))
+                .addContainerGap())
         );
 
         pack();
@@ -144,6 +190,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu JM_Relatorio;
     private javax.swing.JMenu JM_Sair;
     private javax.swing.JMenu JM_Utilitarios;
+    private javax.swing.JLabel LData;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel lhora;
     // End of variables declaration//GEN-END:variables
 }
